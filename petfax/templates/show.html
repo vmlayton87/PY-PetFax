@@ -4,10 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
   </head>
   <body>
-    <h1>Info about {{ pet.pet_name }}</h1>
-    <h2>Fun Fact: {{ pet.pet_fact }}</h2>
-    <img src="{{ pet.pet_photo}}" />
+    <div class="container">
+      <h1>Info about {{ pet.pet_name }}</h1>
+      <div class="callout">
+        <h2>Fun Fact: {{ pet.pet_fact }}</h2>
+      </div>
+      <div class="pets-container">
+        <img src="{{ pet.pet_photo}}" />
+      </div>
+      <a href="/pets">Go back</a>
+    </div>
   </body>
 </html>

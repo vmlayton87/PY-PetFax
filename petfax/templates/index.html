@@ -4,17 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
   </head>
   <body>
-    <h1>Welcome to PetFax!</h1>
-
-    {% for pet in pets %}
-    <h2>{{ pet.pet_name }}</h2>
-    <a href="/pets/{{ pet.pet_id }}">Learn More...</a>
-    <br />
-    <img src="{{ pet.pet_photo }}" alt="photo of {{ pet.pet_name}}" />
-    {% endfor %}
-    <br />
-    <a href="/facts">Add a New Fact!</a>
+    <div class="container">
+      <h1>Welcome to PetFax!</h1>
+      <div class="pets-container">
+        {% for pet in pets %}
+        <div class="pet">
+          <h2>{{ pet.pet_name }}</h2>
+          <a href="/pets/{{ pet.pet_id }}">Learn More...</a>
+          <br />
+          <img src="{{ pet.pet_photo }}" alt="photo of {{ pet.pet_name}}" />
+        </div>
+        {% endfor %}
+      </div>
+      <br />
+    </div>
+    <div class="callout">
+      <p>
+        We'd love to have some more fun facts!
+        <a href="/facts/new">Add a New Fact here...</a>
+      </p>
+    </div>
   </body>
 </html>

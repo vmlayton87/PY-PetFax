@@ -15,4 +15,7 @@ def create_app():
     # register the blueprint in our app by using the corresponding built in method
     app.register_blueprint(pet.bp)
 
+    from . import facts
+    app.register_blueprint(facts.bp)
+
     return app

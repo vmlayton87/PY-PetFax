@@ -14,11 +14,11 @@ bp = Blueprint('pet', __name__, url_prefix="/pets")
 # render the html for the page
 def index():
     # similar to res.render() in express, tell it the file to use, and any variables/attributes to be used.
-    return render_template('index.html', pets = pets)
+    return render_template('pets/index.html', pets = pets)
 
 # create a show route for the individual pet
 @bp.route('/<int:pet_id>')
 def show(pet_id): 
     # not using a fetch to a database, so need to create an index for the pets.json objects
     pets_index = pet_id -1
-    return render_template('show.html', pet=pets[pets_index])
+    return render_template('pets/show.html', pet=pets[pets_index])

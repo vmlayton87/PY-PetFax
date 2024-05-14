@@ -16,11 +16,11 @@ def index():
         print(request.form)
         return redirect('/facts')
     
-    return 'This is the facts index.'
+    return render_template('facts/index.html')
 
 @bp.route('/new')
 # render the html for the page
 def new():
     # similar to res.render() in express, tell it the file to use, and any variables/attributes to be used.
-    return render_template('facts.html')
+    return render_template('facts/new.html')
 

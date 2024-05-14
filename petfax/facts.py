@@ -1,4 +1,4 @@
-from flask import (Blueprint, render_template, request)
+from flask import (Blueprint, render_template, request, redirect)
 # import json
 
 # open the file containing the pet info but label it as pets, but pass it into json so that python can read the json file.
@@ -10,10 +10,13 @@ from flask import (Blueprint, render_template, request)
 bp = Blueprint('facts', __name__, url_prefix="/facts")
 
 # creates a controller for the url extension /pets
-@bp.route('/', methods=['POST'])
+@bp.route('/', methods=['GET', 'POST'])
 def index():
-    print(request.form)
-    return 'Thanks for submitting a fun fact'
+    if request.method == 'POST':
+        print(request.form)
+        return redirect('/facts')
+    
+    return 'This is the facts index.'
 
 @bp.route('/new')
 # render the html for the page

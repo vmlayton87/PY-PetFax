@@ -14,17 +14,16 @@
       <h1>Send us some new facts!</h1>
       <div class="facts-container">
         <form action="/facts" method="POST">
-          <label for="name">Name:</label><br />
-          <input type="text" id="name" name="name" required /><br /><br />
-
-          <label for="fun_fact">Fun Fact:</label><br />
-          <textarea
-            id="fun_fact"
-            name="fun_fact"
-            rows="4"
-            cols="50"
+          <label for="submitter">Name:</label><br />
+          <input
+            type="text"
+            id="submitter"
+            name="submitter"
             required
-          ></textarea
+          /><br /><br />
+
+          <label for="fact">Fun Fact:</label><br />
+          <textarea id="fact" name="fact" rows="4" cols="50" required></textarea
           ><br /><br />
 
           <input type="submit" value="Submit" />
